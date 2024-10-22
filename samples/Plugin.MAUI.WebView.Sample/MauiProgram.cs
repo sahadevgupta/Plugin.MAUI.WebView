@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
 using Plugin.Maui.Feature;
+using Plugin.MAUI.WebView;
 
 namespace Plugin.Maui.Feature.Sample;
 
@@ -14,10 +16,15 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+			.ConfigureMauiHandlers(handlers =>
+			{
+#if ANDROID
+				handlers.AddHandler(typeof(FormsWebView), typeof(FormsWebViewRenderer));
+#endif
 			});
 
 		builder.Services.AddTransient<MainPage>();
-		builder.Services.AddSingleton<IFeature>(Feature.Default);
 
 		return builder.Build();
 	}

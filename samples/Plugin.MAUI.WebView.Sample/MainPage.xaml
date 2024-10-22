@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plugin.Maui.Feature.Sample.MainPage"
+             xmlns:KWebView="clr-namespace:Plugin.MAUI.WebView;assembly=Plugin.Maui.WebView"
+             Title="Feature Plugin">
+
+    <!-- Add something that makes sense for your plugin here -->
+
+    <!--<VerticalStackLayout>
+        --><!--<KWebView:FormsWebView x:Name="internetContent" ContentType="Internet" Source="https://www.xamarin.com"/>--><!--
+
+
+    </VerticalStackLayout>-->
+
+    <KWebView:FormsWebView x:Name="stringContent" ContentType="StringData" OnNavigationStarted="stringContent_OnNavigationStarted"/>
+
+
+
+</ContentPage>
